@@ -1,0 +1,129 @@
+/* INIAD introduction page */
+:root {
+  color-scheme: light;
+  --ink: #17324d;
+  --muted: #526579;
+  --accent: #087e8b;
+  --accent-dark: #075c68;
+  --paper: #ffffff;
+  --canvas: #f2f7fa;
+  --line: #dce7ed;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 860px;
+  margin: 48px auto;
+  padding: 48px clamp(22px, 6vw, 64px);
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 18px 50px rgb(23 50 77 / 9%);
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+html {
+  min-height: 100%;
+  padding: 1px 20px;
+  background: var(--canvas);
+}
+
+h1 {
+  margin: 0 0 40px;
+  padding: 0 0 20px;
+  color: var(--accent-dark);
+  border-bottom: 3px solid var(--accent);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 36px 0 12px;
+  color: var(--ink);
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+h2::before {
+  width: 5px;
+  height: 1.3em;
+  border-radius: 999px;
+  background: var(--accent);
+  content: "";
+}
+
+p {
+  margin: 0;
+  color: var(--muted);
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  position: relative;
+  padding: 13px 16px 13px 40px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f9fcfd;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+li::before {
+  position: absolute;
+  top: 50%;
+  left: 17px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  content: "";
+  transform: translateY(-50%);
+}
+
+li:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: #f0fafb;
+}
+
+@media (max-width: 600px) {
+  html {
+    padding: 1px 12px;
+  }
+
+  body {
+    margin: 20px auto;
+    padding: 30px 22px;
+    border-radius: 14px;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
